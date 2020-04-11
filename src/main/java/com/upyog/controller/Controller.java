@@ -10,5 +10,6 @@ public class Controller {
 	@GetMapping(path = "/test")
 	public String test() {
 		return "Hello world from Spring boot!!!";
+		
 	}
 }
