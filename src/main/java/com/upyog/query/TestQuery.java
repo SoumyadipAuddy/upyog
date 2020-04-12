@@ -1,43 +1,28 @@
 package com.upyog.query;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.List;
 
+import org.apache.commons.beanutils.DynaBean;
 import org.apache.commons.beanutils.RowSetDynaClass;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-@Component
-public class TestQuery {
-	@Autowired
-	Connection conn;
-	
-	/*
-	public RowSetDynaClass runQuery() {
-		try {
-			PreparedStatement prepareStatement =conn.prepareStatement("select * from dbo.Product");
-			prepareStatement.execute();
-			return new RowSetDynaClass(prepareStatement.getResultSet());
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return null;
-	}
-	*/
-	
-	public RowSetDynaClass runQuery()
+
+import com.upyog.insert.QueryExecute;
+@Component("testQuery")
+public class TestQuery extends QueryExecute{
+	@Override
+	public String runQuery(String s)
 	{
-		try {
-			PreparedStatement preparedStatement = conn.prepareStatement("select * from dummy_table");
-			preparedStatement.execute();
-			return new RowSetDynaClass(preparedStatement.getResultSet());
-		}
-		catch(SQLException e)
-		{
-			e.printStackTrace();
-		}
-		
-		return null;
+			RowSetDynaClass dynaBeanList=null;
+			try {
+				dynaBeanList = execute("select * from dummy_table");
+			} catch (SQLException e) {
+				return e.getStackTrace().toString();
+			}
+			StringBuffer st = new StringBuffer();
+			for (DynaBean row : (List<DynaBean>) dynaBeanList.getRows()) {
+				st.append("\n" + row.get("pid") + " " + row.get("name"));
+			}
+			return st.toString();
 	}
 }
