@@ -20,7 +20,7 @@ public class Controller {
 		RowSetDynaClass dynaBeanList = ob.runQuery();
 		StringBuffer st=new StringBuffer();
 		for (DynaBean row : (List<DynaBean>) dynaBeanList.getRows()) {
-			st.append("\r\n"+row.get("pname"));
+			st.append("\r\n"+row.get("pid")+" "+row.get("name"));
 		}
 		return st.toString();
 

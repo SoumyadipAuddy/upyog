@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+/* old for ms sql
 @Configuration
 public class DbConnnection {
 	final String userId = "db_dev";
@@ -19,6 +20,29 @@ public class DbConnnection {
 		try {
 			if (conn == null) {
 				conn = DriverManager.getConnection(String.format(dbURL, userId, password));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return conn;
+	}
+}
+*/
+
+@Configuration
+public class DbConnnection {
+	final String userId = "upyog@upyog-mysql";
+	final String password = "password@1234";
+	final String dbURL ="jdbc:mysql://upyog-mysql.mysql.database.azure.com:3306/upyog?useSSL=true&requireSSL=false&serverTimezone=UTC"; 
+	
+	Connection conn;
+
+	@Bean("connection")
+	public Connection getConnection() {
+		try {
+			if (conn == null) {
+				conn = DriverManager.getConnection(dbURL, userId, password);
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

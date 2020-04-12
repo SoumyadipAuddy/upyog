@@ -11,7 +11,8 @@ import org.springframework.stereotype.Component;
 public class TestQuery {
 	@Autowired
 	Connection conn;
-
+	
+	/*
 	public RowSetDynaClass runQuery() {
 		try {
 			PreparedStatement prepareStatement =conn.prepareStatement("select * from dbo.Product");
@@ -21,6 +22,22 @@ public class TestQuery {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		return null;
+	}
+	*/
+	
+	public RowSetDynaClass runQuery()
+	{
+		try {
+			PreparedStatement preparedStatement = conn.prepareStatement("select * from dummy_table");
+			preparedStatement.execute();
+			return new RowSetDynaClass(preparedStatement.getResultSet());
+		}
+		catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
+		
 		return null;
 	}
 }
