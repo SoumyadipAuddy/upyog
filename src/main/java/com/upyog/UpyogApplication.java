@@ -9,5 +9,4 @@ public class UpyogApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(UpyogApplication.class, args);
 	}
-
 }
