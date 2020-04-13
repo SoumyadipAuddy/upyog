@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.upyog.insert.QueryExecute;
-import com.upyog.insert.SellerReg;
 
 @RestController
 public class Controller {
@@ -43,6 +42,10 @@ public class Controller {
 	@PostMapping(path = "/registration_ngo", consumes = {"application/json","text/plain"}, produces = {"application/json","text/plain"})
 	public @ResponseBody String registrationNgo(@RequestBody String jsonStr) {
 		return context.getBean("NGOReg",QueryExecute.class).runQuery(jsonStr);
+	}
+	@PostMapping(path = "/login", consumes = {"application/json","text/plain"}, produces = {"application/json","text/plain"})
+	public @ResponseBody String login(@RequestBody String jsonStr) {
+		return context.getBean("login",QueryExecute.class).runQuery(jsonStr);
 	}
 	@GetMapping(path = "/")
 	public String home() {

@@ -10,7 +10,7 @@ import com.google.gson.JsonParser;
 @Component("NGOReg")
 public class NGOReg extends QueryExecute {
 	
-	final String insertSql = "insert into upyogdb.seller(firstName,lastName,ngoName,mobileNo,password,address,customer_status,email,govtRegistrationNo) values ('%s','%s','%s','%s','%s','%s','%s','%s','%s')";
+	final String insertSql = "insert into upyogdb.ngo(firstName,lastName,ngoName,mobileNo,password,address,customer_status,email,govtRegistrationNo) values ('%s','%s','%s','%s','%s','%s','%s','%s','%s')";
 
 	@Override
 	public String runQuery(String jsonStr) {
