@@ -12,8 +12,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.upyog.query.TestQuery;
-//@SpringBootApplication
-public class TestConnection implements ApplicationRunner {
+//@SpringBootApplication used to implement application runner
+public class TestConnection{
+	/*
 	@Autowired
 	Connection conn;
 	@Autowired
@@ -26,4 +27,5 @@ public static void main(String[] args) {
 	public void run(ApplicationArguments args) throws Exception {
 		System.out.println( ob.runQuery(""));
 	}
+	*/
 }

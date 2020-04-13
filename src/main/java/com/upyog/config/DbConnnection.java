@@ -34,7 +34,7 @@ public class DbConnnection {
 	final String dbURL ="jdbc:mysql://upyog-mysql.mysql.database.azure.com:3306/upyog?useSSL=true&requireSSL=false&serverTimezone=UTC"; 
 	
 	Connection conn;
-
+	
 	public Connection getConnection() {
 		try {
 			if (conn == null) {

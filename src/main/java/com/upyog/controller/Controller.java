@@ -29,7 +29,7 @@ public class Controller {
 	@GetMapping(path = "/query")
 	public String query(@RequestParam(required = false) String id) {
 		QueryExecute ob=context.getBean("testQuery",QueryExecute.class);
-		return ob.runQuery("");
+		return ob.runQuery("select * from dummy_table");
 	}
 
 	@PostMapping(path = "/registration_seller", consumes = {"application/json","text/plain"}, produces = {"application/json","text/plain"})
