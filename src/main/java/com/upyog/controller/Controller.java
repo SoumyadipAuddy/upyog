@@ -39,6 +39,6 @@ public class Controller {
 
 	@GetMapping(path = "/")
 	public String home() {
-		return "Hello Home!#SocialDistancing";
+		return "Hello from heroku! #SocialDistancing";
 	}
 }
