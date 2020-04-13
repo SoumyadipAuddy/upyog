@@ -36,7 +36,14 @@ public class Controller {
 	public @ResponseBody String registrationSeller(@RequestBody String jsonStr) {
 		return context.getBean("sellerReg",QueryExecute.class).runQuery(jsonStr);
 	}
-
+	@PostMapping(path = "/registration_buyer", consumes = {"application/json","text/plain"}, produces = {"application/json","text/plain"})
+	public @ResponseBody String registrationBuyer(@RequestBody String jsonStr) {
+		return context.getBean("buyerReg",QueryExecute.class).runQuery(jsonStr);
+	}
+	@PostMapping(path = "/registration_ngo", consumes = {"application/json","text/plain"}, produces = {"application/json","text/plain"})
+	public @ResponseBody String registrationNgo(@RequestBody String jsonStr) {
+		return context.getBean("NGOReg",QueryExecute.class).runQuery(jsonStr);
+	}
 	@GetMapping(path = "/")
 	public String home() {
 		return "Hello from heroku! #SocialDistancing";
