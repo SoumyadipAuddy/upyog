@@ -6,7 +6,8 @@ import java.sql.SQLException;
 
 import org.apache.commons.beanutils.RowSetDynaClass;
 import org.springframework.beans.factory.annotation.Autowired;
-
+import org.springframework.stereotype.Component;
+@Component
 public abstract class QueryExecute {
 	@Autowired
 	public Connection conn;
