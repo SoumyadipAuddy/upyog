@@ -19,7 +19,9 @@ public abstract class QueryExecute {
 	protected RowSetDynaClass execute(String sql) throws SQLException {
 		PreparedStatement preparedStatement = conn.prepareStatement(sql);
 		preparedStatement.execute();
-		return new RowSetDynaClass(preparedStatement.getResultSet());
+		if(preparedStatement.getResultSet()!=null)
+			return new RowSetDynaClass(preparedStatement.getResultSet());
+		return null;
 	}
 
 	/**
